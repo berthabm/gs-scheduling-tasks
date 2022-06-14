@@ -75,7 +75,7 @@ public class ScheduledTasks {
         Tabla aTotalizadorH = newJpo.tabla("\"aTotalizadorH\"");
         Tabla aVenta = newJpo.tabla("\"aVenta\"");
         
-        //tPrueba.donde("asistencia = 0");
+       //tPrueba.donde("asistencia = 0"); 
         
        // List<Object> resultadoId = (List<Object>)tPrueba.donde("asistencia = 0").seleccionar("id");
 
