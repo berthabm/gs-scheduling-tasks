@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>scheduling-tasks-complete</artifactId>
+	<artifactId>scheduling-tasks-initial</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>scheduling-tasks-complete</name>
+	<name>scheduling-tasks-initial</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -24,17 +24,38 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.awaitility</groupId>
-			<artifactId>awaitility</artifactId>
-			<version>3.1.2</version>
-			<scope>test</scope>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+    		<groupId>com.microsoft.sqlserver</groupId>
+   		    <artifactId>mssql-jdbc</artifactId>
+    		<scope>runtime</scope>
 		</dependency>
+        <dependency>
+            <groupId>ohSolutions</groupId>
+            <artifactId>ohRest</artifactId>
+            <version>2.2.0.6</version>
+        </dependency>
+        
+		<dependency>
+          <groupId>org.awaitility</groupId>
+          <artifactId>awaitility</artifactId>
+          <version>3.1.2</version>
+          <scope>test</scope>
+        </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+            <groupId>com.mashape.unirest</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>1.4.9</version>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -46,4 +67,32 @@
 		</plugins>
 	</build>
 
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+			   <snapshots>
+			      <enabled>false</enabled>
+			   </snapshots>
+        </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+			   <snapshots>
+			      <enabled>false</enabled>
+			   </snapshots>
+        </repository>
+        <repository>
+          <id>ovenfowebmaster</id>
+          <url>https://pkgs.dev.azure.com/ovenfowebmaster/_packaging/ovenfowebmaster/maven/v1</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>

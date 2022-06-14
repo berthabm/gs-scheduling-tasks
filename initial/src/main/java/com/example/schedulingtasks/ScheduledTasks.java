@@ -22,9 +22,9 @@ import ohSolutions.ohJpo.dao.JpoClass;
 import ohSolutions.ohJpo.dao.Tabla;
 
 @Component
-public class ScheduledTasksTest {
+public class ScheduledTasks {
 
-	private static final Logger log = LoggerFactory.getLogger(ScheduledTasksTest.class);
+	private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
 
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 	
@@ -72,27 +72,31 @@ public class ScheduledTasksTest {
         //Object resultado = newJpo.tabla("pruebas").donde("edad = 19").seleccionar("nombre, edad");
         
         // [{"nombre":"Bertha","edad":19}]
-        Tabla tPrueba = newJpo.tabla("pruebas");
+        Tabla aTotalizadorH = newJpo.tabla("\"aTotalizadorH\"");
+        Tabla aVenta = newJpo.tabla("\"aVenta\"");
         
         //tPrueba.donde("asistencia = 0");
         
        // List<Object> resultadoId = (List<Object>)tPrueba.donde("asistencia = 0").seleccionar("id");
 
-        List<Object> resultado = (List<Object>) tPrueba.seleccionar("*");
+        List<Object> resultadoaTotalizadorH = (List<Object>) aTotalizadorH.seleccionar("*");
+        List<Object> resultadoaVenta = (List<Object>) aTotalizadorH.seleccionar("*");
         
         
-        
-        for(int i = 0; i < resultado.size(); i++) {
-        	Map<String, Object> item = (Map<String, Object>) resultado.get(i);
+        for(int i = 0; i < resultadoaTotalizadorH.size(); i++) {
+        	Map<String, Object> item = (Map<String, Object>) resultadoaTotalizadorH.get(i);
         	//Map<String, Object> item2 = (Map<String, Object>) resultadoId.get(i);
         	
         	System.out.println(item);
         	
-        	System.out.println(item.get("id"));
+        	System.out.println(item.get("thID"));
         	
-        	System.out.println(item.get("nombre"));
-        	System.out.println(item.get("fechanacimiento"));
-        	System.out.println(item.get("asistencia"));
+        	System.out.println(item.get("thHora"));
+        	System.out.println(item.get("thCara"));
+        	System.out.println(item.get("thManguera"));
+        	System.out.println(item.get("thTipo"));
+        	System.out.println(item.get("thImporte"));
+        	System.out.println(item.get("thVolumen"));
         	
         	/*Date fecha = (Date) item.get("fechanacimiento");
         	
@@ -123,16 +127,16 @@ public class ScheduledTasksTest {
             
              tPruebaEdit.setData("asistencia", "1");
             
-             tPruebaEdit.editar(); // UPDATE pruebas SET estado = 0 where pruea_id = 1
+             tPruebaEdit.editar(); // UPDATE pruebas SET estado = 0 where pruea_id = 1*/
             
-        	*/
+        	
         	
         }
         
         newJpo.commit();
         
         System.out.println("Resultado de prueba");
-        System.out.println((new Gson()).toJson(resultado));
+        System.out.println((new Gson()).toJson(resultadoaTotalizadorH));
 
 		System.out.println("Hola mundo");
 	}
